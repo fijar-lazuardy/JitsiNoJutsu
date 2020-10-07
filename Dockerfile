@@ -6,9 +6,10 @@ WORKDIR /app
 # add /app/node_modules/.bin to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
-COPY . ./app
+COPY package.json /app
 
 RUN npm install --silent
+COPY . /app
 
 # add app
 
