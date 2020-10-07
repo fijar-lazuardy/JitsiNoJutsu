@@ -1,8 +1,9 @@
-import React from 'react';
-import Home from './pages/Home/index';
+import React from "react";
+import Router from "./Router";
 function App() {
   return (
-    <Home/>
+    // <Home/>
+    <Router />
   );
 }
 
