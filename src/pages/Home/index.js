@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { WrapperHome, Flex, Left, Right } from "./style";
 import JitsiVideoConference from "../JitsiVideoConference/index";
 import People from "./Media/people.png";
+import {validateTicket} from './action';
+import { useLocation} from "react-router-dom";
+import qs from 'query-string'
+
 const Home = () => {
+  const location = useLocation();
+  const parsed = qs.parse(location.search);
   const [isStarted, setIsStarted] = useState(false);
   const [values, setValues] = useState({
     roomName: "",
@@ -11,6 +17,11 @@ const Home = () => {
     displayName: "",
     jwt: "",
   });
+
+  useEffect(()=>{
+    validateTicket(parsed.ticket)
+  },[parsed.ticket])
+  
   const handleChange = (e, name) => {
     e.persist();
     setValues((prev) => ({ ...prev, [name]: e.target.value }));
