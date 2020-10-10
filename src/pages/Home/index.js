@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { WrapperHome, Flex, Left, Right } from "./style";
 import JitsiVideoConference from "../JitsiVideoConference/index";
 import People from "./Media/people.png";
+import {getUser,logout} from "../../utils/auth";
+
+
 const Home = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [values, setValues] = useState({
     roomName: "",
     password: "",
     subject: "",
-    displayName: "",
+    displayName:`${getUser().name} - ${getUser().npm}`,
     jwt: "",
-  });
+  });  
+
+
   const handleChange = (e, name) => {
     e.persist();
     setValues((prev) => ({ ...prev, [name]: e.target.value }));
   };
   const handleJoin = () => {
-    setIsStarted(true);
+    if(values.roomName && values.displayName && values.subject){
+      setIsStarted(true);
+    }
+  
   };
   const handleEndMeet = () => {
     setIsStarted(false);
@@ -24,10 +32,15 @@ const Home = () => {
       roomName: "",
       password: "",
       subject: "",
-      displayName: "",
+      displayName: `${getUser().name} - ${getUser().npm}`,
       jwt: "",
     });
   };
+  const handleLogout = ()=>{
+    logout()
+    window.location.href="https://sso.ui.ac.id/cas2/logout?url=http://localhost:3001"
+
+  }
   return (
     <WrapperHome>
       {isStarted ? (
@@ -52,76 +65,70 @@ const Home = () => {
                 <h1>Start New Meeting</h1>
               </Flex>
               <Flex direction="column" justify="center">
-                <div class="form_group">
+                <div className="classNamem_group">
                   <input
                     type="text"
-                    class="form__input"
+                    className="form__input"
                     value={values.subject}
                     onChange={(e) => handleChange(e, "subject")}
                     placeholder="Title"
                     required=""
                   />
-                  <label for="name" class="form__label">
+                  <label htmlFor="name" className="form__label">
                     Title
                   </label>
                 </div>
 
-                <div class="form_group">
+                <div className="form_group">
                   <input
                     type="text"
-                    class="form__input"
+                    className="form__input"
                     value={values.roomName}
                     onChange={(e) => handleChange(e, "roomName")}
-                    placeholder="Room"
+                    placeholder="Room Name"
                     required=""
                   />
-                  <label for="name" class="form__label">
-                    Room
+                  <label htmlFor="name" className="form__label">
+                    Room Name
                   </label>
                 </div>
 
-                <div class="form_group">
+                <div className="form_group">
                   <input
                     type="text"
-                    class="form__input"
+                    className="form__input"
                     value={values.displayName}
                     onChange={(e) => handleChange(e, "displayName")}
-                    placeholder="Username"
+                    placeholder="Display Name"
                     required=""
                   />
-                  <label for="name" class="form__label">
-                    Username
+                  <label htmlFor="name" className="form__label">
+                    Display Name
                   </label>
                 </div>
 
-                <div class="form_group">
+                <div className="form_group">
                   <input
                     type="password"
-                    class="form__input"
+                    className="form__input"
                     value={values.password}
                     onChange={(e) => handleChange(e, "password")}
                     placeholder="Password"
                     required=""
                   />
-                  <label for="name" class="form__label">
+                  <label htmlFor="name" className="form__label">
                     Password
                   </label>
                 </div>
                 <Flex direction="row" justify="center">
                   <button onClick={handleJoin}>Start / Join</button>
                 </Flex>
+                <Flex direction="row" justify="center">
+                  <button onClick={handleLogout}>logout</button>
+                </Flex>
               </Flex>
             </Right>
           </Flex>
-          {/* <label>nama room brok</label>
-            <input value={values.roomName} onChange={(e)=>handleChange(e,'roomName')}></input>
-            <label>judul meet brok</label>
-            <input value={values.subject} onChange={(e)=>handleChange(e,'subject')}></input>
-            <label>nama lu brok</label>
-            <input value={values.displayName} onChange={(e)=>handleChange(e,'displayName')}></input>
-            <label>password</label>
-            <input value={values.password} onChange={(e)=>handleChange(e,'password')}></input>
-            <button onClick={handleJoin}>join kuy</button> */}
         </>
       )}
     </WrapperHome>

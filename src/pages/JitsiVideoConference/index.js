@@ -26,10 +26,13 @@ const JitsiVideoConference = ({subject="",roomName="",password="",displayName=""
         options.parentNode =document.getElementById(options.parentNode)
         const api = new window.JitsiMeetExternalAPI(domain, options);
         setLoading(false)
+        console.log(subject)
+        console.log(displayName)
         api.executeCommand('subject', subject)
         api.addEventListener('videoConferenceJoined', () => {
-          if (password) api.executeCommand('password', password)
           api.executeCommand('displayName', displayName)
+          if (password) api.executeCommand('password', password)
+       
         })
         api.addEventListener('passwordRequired', () => {
           if (password) {
