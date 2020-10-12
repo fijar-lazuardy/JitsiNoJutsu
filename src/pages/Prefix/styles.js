@@ -11,7 +11,9 @@ export const WrapperPrefix = styled.div`
 
   .center_vector {
     width: 670px;
-    width: 413;
+    @media only screen and (max-width: 414px) {
+      width: 370px;
+    }
   }
   .side_vector {
     position: absolute;
@@ -22,6 +24,10 @@ export const WrapperPrefix = styled.div`
 
     @media (max-width: 500px) {
       display: none;
+    }
+    @media (max-width: 768px) {
+      width: 280px;
+      height: 530px;
     }
   }
   button {
@@ -40,6 +46,12 @@ export const WrapperPrefix = styled.div`
     font-weight: 800;
     font-size: 28px;
     cursor: pointer;
+
+    @media only screen and (max-width: 414px) {
+      width: 240px;
+      height: 65px;
+      font-size: 22px;
+    }
   }
 `;
 

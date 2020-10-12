@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width:70vw;
-    height:50vh;
+    width:100vw;
+    height:100vh;
 `
 export const WrapperJitsi = styled.div`
     display: ${({loading})=>loading ? 'none' : 'block'};

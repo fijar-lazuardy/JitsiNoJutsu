@@ -41,8 +41,7 @@ export const Left = styled.div`
     // bottom: 0;
   }
   @media (max-width: 500px) {
-    width: 360px;
-    border-radius: 20px;
+    display: none;
   }
 `;
 
@@ -56,6 +55,9 @@ export const Right = styled.div`
     font-size: 36px;
     text-align: center;
     margin-bottom: 45px;
+    @media (max-width: 500px) {
+      font-size: 30px;
+    }
   }
   img {
     padding-top: 100px;
@@ -67,6 +69,7 @@ export const Right = styled.div`
     display: inline-block;
     border: none;
     border-radius: 20px;
+    margin-top: 5px;
     text-decoration: none;
     font-family: "Roboto", sans-serif;
     font-weight: 800;
@@ -78,6 +81,12 @@ export const Right = styled.div`
     height: 65px;
     font-size: 24px;
     cursor: pointer;
+
+    @media (max-width: 500px) {
+      width: 300px;
+      height: 50px;
+      font-size: 20px;
+    }
   }
   .form_group {
     margin-top: 0.7em;
@@ -90,6 +99,9 @@ export const Right = styled.div`
     display: block;
     transition: all 0.3s;
     transform: translateY(-5rem);
+    @media (max-width: 500px) {
+      margin-left: 3rem;
+    }
   }
 
   .form__input {
@@ -114,6 +126,7 @@ export const Right = styled.div`
     transform: translateY(-2rem);
   }
   @media (max-width: 500px) {
-    display: none;
+    width: 360px;
+    border-radius: 20px;
   }
 `;
