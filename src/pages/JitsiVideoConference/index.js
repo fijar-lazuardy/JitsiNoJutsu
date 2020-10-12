@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react";
 import {Container,WrapperJitsi} from './style';
+import {JITSI_DOMAIN} from "../../utils/constant";
 
-const domain = 'meet.jit.si';
+const domain = JITSI_DOMAIN;
 const jitsiContainerId = 'jitsi-container';
 
 const JitsiVideoConference = ({subject="",roomName="",password="",displayName="",jwt="",onClose = ()=>{},...props}) => {

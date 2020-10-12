@@ -6,7 +6,8 @@ import { useLocation, useHistory } from "react-router-dom";
 import qs from "query-string";
 import Axios from "axios";
 import { login, checkAuth } from "../../utils/auth";
-import { getUser, URL_REDIRECT } from "../../utils/api";
+import { getUser } from "../../utils/api";
+import { URL_REDIRECT } from "../../utils/constant";
 
 const Prefix = () => {
   const location = useLocation();

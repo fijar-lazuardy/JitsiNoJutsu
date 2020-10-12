@@ -1,8 +1,9 @@
-const getUser = "http://localhost:8000/user";
-// process.env.NODE_ENV === "production"
-//   ? process.env.DEV_URL
-//   : process.env.PROD_URL;
+const BASE_URL_SERVER = process.env.REACT_APP_NODE_ENV === "prod"
+  ? process.env.REACT_APP_PROD_URL_SERVER
+  : process.env.REACT_APP_DEV_URL_SERVER;
 
-const URL_REDIRECT = "http://localhost:3001";
+//API
+const getUser = `${BASE_URL_SERVER}/api/user`;
 
-export { getUser, URL_REDIRECT };
+
+export { getUser};
