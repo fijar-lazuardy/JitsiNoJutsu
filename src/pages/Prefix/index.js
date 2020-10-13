@@ -15,13 +15,15 @@ const Prefix = () => {
   const parsed = qs.parse(location.search);
 
   const handleLogin = () => {
-    window.location.href = `https://sso.ui.ac.id/cas2/login?service=${URL_REDIRECT}`;
+    window.location.href = `https://akun-kp.cs.ui.ac.id/cas/login?service=${URL_REDIRECT}`;
   };
 
   useEffect(() => {
     if (parsed.ticket) {
+      console.log(parsed.ticket)
       Axios.post(`${getUser}/?ticketId=${parsed.ticket}`)
         .then((res) => {
+          console.log(res)
           const data = res.data.data;
           login(data);
           history.push("/home");

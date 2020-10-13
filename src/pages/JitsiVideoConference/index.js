@@ -7,12 +7,15 @@ const jitsiContainerId = 'jitsi-container';
 
 const JitsiVideoConference = ({subject="",roomName="",password="",displayName="",jwt="",onClose = ()=>{},...props}) => {
     const [loading, setLoading] = useState(true);
-
+ 
     function startConference() {
         try {
         const options = { 
           roomName:roomName, 
-          subject:subject,
+          subject:subject,     
+          userInfo: {
+            displayName: displayName
+        },
           jwt: jwt ,
           password:password,
           parentNode:jitsiContainerId,
@@ -22,17 +25,18 @@ const JitsiVideoConference = ({subject="",roomName="",password="",displayName=""
           },
           configOverwrite: {
             disableSimulcast: false,
+            prejoinPageEnabled: false,
+            startAudioOnly:true
           },
         }
         options.parentNode =document.getElementById(options.parentNode)
         const api = new window.JitsiMeetExternalAPI(domain, options);
         setLoading(false)
-        console.log(subject)
-        console.log(displayName)
         api.executeCommand('subject', subject)
-        api.addEventListener('videoConferenceJoined', () => {
-          api.executeCommand('displayName', displayName)
+        api.executeCommand('displayName', displayName)
+        api.addEventListener('videoConferenceJoined', () => { 
           if (password) api.executeCommand('password', password)
+         
        
         })
         api.addEventListener('passwordRequired', () => {
