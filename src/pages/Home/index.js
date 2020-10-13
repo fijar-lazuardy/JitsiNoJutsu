@@ -11,7 +11,7 @@ const Home = () => {
     roomName: "",
     password: "",
     subject: "",
-    displayName:`${getUser().name} - ${getUser().npm}`,
+    displayName:`${getUser().name}`,
     jwt: "",
   });  
 
@@ -38,7 +38,7 @@ const Home = () => {
   };
   const handleLogout = ()=>{
     logout()
-    window.location.href="https://sso.ui.ac.id/cas2/logout?url=http://localhost:3001"
+    window.location.href="https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3001"
 
   }
   return (
@@ -65,6 +65,11 @@ const Home = () => {
                 <h1>Start New Meeting</h1>
               </Flex>
               <Flex direction="column" justify="center">
+              <div className="welcome-text">
+                <h5>Welcome,</h5>
+                 <h5>{values.displayName}</h5>
+                 
+                </div>
                 <div className="classNamem_group">
                   <input
                     type="text"
@@ -95,20 +100,6 @@ const Home = () => {
 
                 <div className="form_group">
                   <input
-                    type="text"
-                    className="form__input"
-                    value={values.displayName}
-                    onChange={(e) => handleChange(e, "displayName")}
-                    placeholder="Display Name"
-                    required=""
-                  />
-                  <label htmlFor="name" className="form__label">
-                    Display Name
-                  </label>
-                </div>
-
-                <div className="form_group">
-                  <input
                     type="password"
                     className="form__input"
                     value={values.password}
@@ -124,7 +115,7 @@ const Home = () => {
                   <button onClick={handleJoin}>Start / Join</button>
                 </Flex>
                 <Flex direction="row" justify="center">
-                  <button onClick={handleLogout}>logout</button>
+                  <button className="logout-button" onClick={handleLogout}>logout</button>
                 </Flex>
               </Flex>
             </Right>

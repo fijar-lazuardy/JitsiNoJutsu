@@ -65,6 +65,9 @@ export const Right = styled.div`
     width: 370px;
     height: 370px;
   }
+  button.logout-button{
+    background-color:#d3d3d3;
+  }
   button {
     display: inline-block;
     border: none;
@@ -124,6 +127,14 @@ export const Right = styled.div`
     visibility: hidden;
     -webkit-transform: translateY(-2rem);
     transform: translateY(-2rem);
+  }
+  .welcome-text{
+    padding:0rem 6rem;
+    h5{
+      margin:0;
+    }
+    margin-bottom:2rem;
+
   }
   @media (max-width: 500px) {
     width: 360px;
