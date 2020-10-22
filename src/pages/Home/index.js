@@ -30,14 +30,15 @@ const Home = () => {
       roomName: "",
       // password: "",
       // subject: "",
-      displayName: `${getUser().name} - ${getUser().npm}`,
+      displayName: `${getUser().name}`,
       jwt: "",
     });
   };
   const handleLogout = () => {
-    logout();
     window.location.href =
-      "https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3001";
+      "https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3000";
+    logout();
+    
   };
   return (
     <WrapperHome>
