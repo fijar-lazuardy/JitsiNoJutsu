@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { WrapperHome, Flex, Left, Right, Header, Paper } from "./style";
+import { WrapperHome, Flex, Header, Paper } from "./style";
 import JitsiVideoConference from "../JitsiVideoConference/index";
 import Logo from "./Media/logo2.png";
 import Video from "./Media/video.jpg";
