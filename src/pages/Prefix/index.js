@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { WrapperPrefix } from "./styles";
-import Center from "./Media/center_vector.png";
+import { WrapperPrefix, Button } from "./styles";
+import Center from "./Media/center.jpg";
 import Side from "./Media/side_vector.png";
 import { useLocation, useHistory } from "react-router-dom";
 import qs from "query-string";
@@ -20,10 +20,10 @@ const Prefix = () => {
 
   useEffect(() => {
     if (parsed.ticket) {
-      console.log(parsed.ticket)
+      console.log(parsed.ticket);
       Axios.post(`${getUser}/?ticketId=${parsed.ticket}`)
         .then((res) => {
-          console.log(res)
+          console.log(res);
           const data = res.data.data;
           login(data);
           history.push("/home");
@@ -39,8 +39,8 @@ const Prefix = () => {
   return (
     <WrapperPrefix>
       <img src={Center} alt="center_vector" className="center_vector" />
-      <img src={Side} alt="side_vector" className="side_vector" />
-      <button onClick={handleLogin}>Login With SSO</button>
+      {/* <img src={Side} alt="side_vector" className="side_vector" /> */}
+      <Button onClick={handleLogin}>Login With SSO</Button>
     </WrapperPrefix>
   );
 };
