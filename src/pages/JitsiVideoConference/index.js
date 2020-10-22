@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react";
 import {Container,WrapperJitsi} from './style';
 import {JITSI_DOMAIN} from "../../utils/constant";
 
+
 const domain = JITSI_DOMAIN;
 const jitsiContainerId = 'jitsi-container';
 

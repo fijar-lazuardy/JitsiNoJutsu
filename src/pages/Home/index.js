@@ -1,59 +1,101 @@
-import React, { useState} from "react";
-import { WrapperHome, Flex, Left, Right } from "./style";
+import React, { useState } from "react";
+import { WrapperHome, Flex, Header, Paper } from "./style";
 import JitsiVideoConference from "../JitsiVideoConference/index";
-import People from "./Media/people.png";
-import {getUser,logout} from "../../utils/auth";
-
+import Logo from "./Media/logo2.png";
+import Video from "./Media/video.jpg";
+import { getUser, logout } from "../../utils/auth";
 
 const Home = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [values, setValues] = useState({
     roomName: "",
-    password: "",
-    subject: "",
-    displayName:`${getUser().name}`,
+    // password: "",
+    // subject: "",
+    displayName: `${getUser().name}`,
     jwt: "",
-  });  
-
+  });
 
   const handleChange = (e, name) => {
     e.persist();
     setValues((prev) => ({ ...prev, [name]: e.target.value }));
   };
   const handleJoin = () => {
-    if(values.roomName && values.displayName && values.subject){
+    if (values.roomName) {
       setIsStarted(true);
     }
-  
   };
   const handleEndMeet = () => {
     setIsStarted(false);
     setValues({
       roomName: "",
-      password: "",
-      subject: "",
-      displayName: `${getUser().name} - ${getUser().npm}`,
+      // password: "",
+      // subject: "",
+      displayName: `${getUser().name}`,
       jwt: "",
     });
   };
-  const handleLogout = ()=>{
-    logout()
-    window.location.href="https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3001"
-
-  }
+  const handleLogout = () => {
+    window.location.href =
+      "https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3000";
+    logout();
+    
+  };
   return (
     <WrapperHome>
       {isStarted ? (
         <JitsiVideoConference
           roomName={values.roomName}
-          password={values.password}
-          subject={values.subject}
+          // password={values.password}
+          // subject={values.subject}
           displayName={values.displayName}
           onClose={handleEndMeet}
         />
       ) : (
         <>
-          <Flex direction="row" justify="center">
+          <Header>
+            <Flex direction="row">
+              <img src={Logo} alt="UI-Logo" />
+              <p>JitsiNoJutsu</p>
+              <p className="welcome">Welcome, {values.displayName}</p>
+              <button className="logoutBtn" onClick={handleLogout}>
+                Logout
+              </button>
+            </Flex>
+          </Header>
+
+          <Flex direction="row">
+            <Flex direction="column" style={{ width: "30em", margin: 0 }}>
+              <p className="caption">プレミアムビデオ会議。 誰でも無料</p>
+              <p className="description">
+                Premium video meetings. Free for everyone
+              </p>
+              <Flex direction="row" style={{ marginTop: "5em" }}>
+                <div className="classNamem_group">
+                  <input
+                    type="text"
+                    className="form__input"
+                    value={values.roomName}
+                    onChange={(e) => handleChange(e, "roomName")}
+                    placeholder="Room Name"
+                    required=""
+                  />
+                  <label htmlFor="name" className="form__label">
+                    Room
+                  </label>
+                </div>
+                <button className="button" onClick={handleJoin}>
+                  Join
+                </button>
+              </Flex>
+            </Flex>
+            <Flex direction="column">
+              <Paper>
+                <img src={Video} alt="video-confernce" />
+              </Paper>
+            </Flex>
+          </Flex>
+
+          {/* <Flex direction="row" justify="center">
             <Left>
               <Flex direction="row" justify="center" alignItem="center">
                 <h1>Jitsi No Jutsu</h1>
@@ -119,7 +161,7 @@ const Home = () => {
                 </Flex>
               </Flex>
             </Right>
-          </Flex>
+          </Flex> */}
         </>
       )}
     </WrapperHome>
