@@ -4,6 +4,7 @@ import JitsiVideoConference from "../JitsiVideoConference/index";
 import Logo from "./Media/logo2.png";
 import Video from "./Media/video.jpg";
 import { getUser, logout } from "../../utils/auth";
+import { URL_REDIRECT } from "../../utils/constant";
 
 const Home = () => {
   const [isStarted, setIsStarted] = useState(false);
@@ -35,9 +36,20 @@ const Home = () => {
     });
   };
   const handleLogout = () => {
-    window.location.href =
-      "https://akun-kp.cs.ui.ac.id/cas/logout?service=http://localhost:3000";
-    logout();
+    const logoutWindow = window.open(
+      `https://akun-kp.cs.ui.ac.id/cas/logout?service=${URL_REDIRECT}`,
+      "_blank",
+      "width=800,height=800",
+      "toolbar=0,location=0,menubar=0"
+    );
+   setInterval(() => {
+
+      logoutWindow.close()
+      logout();
+      window.location.reload()
+    }, 1500);
+  
+   
     
   };
   return (
