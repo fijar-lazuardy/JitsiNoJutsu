@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { WrapperHome, Flex, Header, Paper } from "./style";
 import JitsiVideoConference from "../JitsiVideoConference/index";
-import Logo from "./Media/logo2.png";
-import Video from "./Media/video.jpg";
 import { getUser, logout } from "../../utils/auth";
 import { URL_REDIRECT } from "../../utils/constant";
 
@@ -66,7 +64,7 @@ const Home = () => {
         <>
           <Header>
             <Flex direction="row">
-              <img src={Logo} alt="UI-Logo" />
+              <img src={"https://i.ibb.co/9cpjmRX/logo.png"} alt="UI-Logo" />
               <p>JitsiNoJutsu</p>
               <p className="welcome">Welcome, {values.displayName}</p>
               <button className="logoutBtn" onClick={handleLogout}>
@@ -102,78 +100,10 @@ const Home = () => {
             </Flex>
             <Flex direction="column">
               <Paper>
-                <img src={Video} alt="video-confernce" />
+                <img src={"https://i.ibb.co/28BRcQS/video.jpg"} alt="video-confernce" />
               </Paper>
             </Flex>
           </Flex>
-
-          {/* <Flex direction="row" justify="center">
-            <Left>
-              <Flex direction="row" justify="center" alignItem="center">
-                <h1>Jitsi No Jutsu</h1>
-              </Flex>
-              <img src={People} alt="people_vector" />
-            </Left>
-            <Right>
-              <Flex direction="row" justify="center" alignItem="center">
-                <h1>Start New Meeting</h1>
-              </Flex>
-              <Flex direction="column" justify="center">
-              <div className="welcome-text">
-                <h5>Welcome,</h5>
-                 <h5>{values.displayName}</h5>
-                 
-                </div>
-                <div className="classNamem_group">
-                  <input
-                    type="text"
-                    className="form__input"
-                    value={values.subject}
-                    onChange={(e) => handleChange(e, "subject")}
-                    placeholder="Title"
-                    required=""
-                  />
-                  <label htmlFor="name" className="form__label">
-                    Title
-                  </label>
-                </div>
-
-                <div className="form_group">
-                  <input
-                    type="text"
-                    className="form__input"
-                    value={values.roomName}
-                    onChange={(e) => handleChange(e, "roomName")}
-                    placeholder="Room Name"
-                    required=""
-                  />
-                  <label htmlFor="name" className="form__label">
-                    Room Name
-                  </label>
-                </div>
-
-                <div className="form_group">
-                  <input
-                    type="password"
-                    className="form__input"
-                    value={values.password}
-                    onChange={(e) => handleChange(e, "password")}
-                    placeholder="Password"
-                    required=""
-                  />
-                  <label htmlFor="name" className="form__label">
-                    Password
-                  </label>
-                </div>
-                <Flex direction="row" justify="center">
-                  <button onClick={handleJoin}>Start / Join</button>
-                </Flex>
-                <Flex direction="row" justify="center">
-                  <button className="logout-button" onClick={handleLogout}>logout</button>
-                </Flex>
-              </Flex>
-            </Right>
-          </Flex> */}
         </>
       )}
     </WrapperHome>
