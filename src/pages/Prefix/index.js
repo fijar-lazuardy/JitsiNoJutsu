@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { WrapperPrefix, Button } from "./styles";
-import Center from "./Media/center.jpg";
+// import Center from "./Media/center.jpg";
 import { useLocation, useHistory } from "react-router-dom";
 import qs from "query-string";
 import Axios from "axios";
@@ -39,7 +39,7 @@ const Prefix = () => {
         <Homepage/>
       :
       <WrapperPrefix>
-        <img src={Center} alt="center_vector" className="center_vector" />
+        <img src={"https://i.ibb.co/hMgZc66/center.jpg"} alt="center_vector" className="center_vector" />
         {/* <img src={Side} alt="side_vector" className="side_vector" /> */}
         <Button onClick={handleLogin}>Login With SSO</Button>
       </WrapperPrefix>
