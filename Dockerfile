@@ -16,4 +16,4 @@ RUN npm install --silent
 COPY . ./
 
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "start:prod"]
