@@ -10,7 +10,8 @@ const Home = () => {
     roomName: "",
     // password: "",
     // subject: "",
-    displayName: `${getUser().name}`,
+    displayName: `${getUser()?.name ?? ""}`,
+    email:`${getUser()?.email ?? ""}`,
     jwt: "",
   });
 
@@ -29,7 +30,8 @@ const Home = () => {
       roomName: "",
       // password: "",
       // subject: "",
-      displayName: `${getUser().name}`,
+      displayName: `${getUser()?.name ?? ""}`,
+      email:`${getUser()?.email ?? ""}`,
       jwt: "",
     });
   };
@@ -59,6 +61,8 @@ const Home = () => {
             // password={values.password}
             // subject={values.subject}
             displayName={values.displayName}
+            email ={values.email}
+           
             onClose={handleEndMeet}
           />
         ) : (

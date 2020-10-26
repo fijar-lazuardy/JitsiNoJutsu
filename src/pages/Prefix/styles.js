@@ -91,3 +91,11 @@ export const Button = styled.a`
     padding: 0.75em 1.2em;
   }
 `;
+
+export const LoadingWrapper = styled.div`
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+`
