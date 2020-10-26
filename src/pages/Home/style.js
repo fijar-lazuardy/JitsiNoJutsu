@@ -50,34 +50,8 @@ export const Header = styled.div`
   }
   
 
-  @media (max-width: 1000px){
-
-    // img{
-    //   width: 4em;
-    //   height: 4em;
-    // }
-    // p{
-    //   font-size: 1.2rem;
-    // }
-    // .welcome{
-    //   display: none;
-    // }
-    // button{
-    //   display: none;
-    // }
-    left: 1em;
-    img{
-      width: 4em;
-      height: 4em;
-    }
-    p{
-      font-size: 1.2rem;
-    }
-    .welcome{
-      margin-left: 5rem;
-      font-size: 15px;
-      padding: 0;
-    }
+  @media (max-width: 800px){
+    display: none;
   }
 `;
 
@@ -151,67 +125,10 @@ export const WrapperHome = styled.div`
     font-size: 17px;
     cursor: pointer;
   }
-  .warning{
+  
+
+  @media (max-width: 800px){
     display: none;
-  }
-
-  // @media (max-width: 1000px){
-  //   .caption {
-  //     display: none;
-  //   }
-  //   .description{
-  //     display: none;
-  //   }
-  //   .form__input{
-  //     display: none;
-  //   }
-  //   button{
-  //     display: none;
-  //   }
-  //   img{
-  //     display: none;
-  //   }
-  //   p{
-  //     display: none;
-  //   }
-  //   .warning{
-  //     display: block;
-  //     margin-top: 3em;
-  //     text-align: center;
-  //     // margin-left: 2em;
-  //     // margin-rigth: 2em;
-
-  //   }
-    
-  // }
-
-  @media (max-width: 414px){
-    .welcome{
-      display: none;
-    }
-    .caption{
-      text-align: center;
-      margin-top: 4em;
-      font-size: 1.5em;
-    }
-    .description{
-      font-size: 1em;
-      text-align: center;
-    }
-    .form__input{
-      width: 170px;
-    }
-    .form__label{
-      margin-left: 1em;
-    }
-  }
-  @media (max-width: 375px){
-    .caption{
-      text-align: center;
-    }  
-    .form__input{
-      width: 150px;
-    }
   }
 `;
 
@@ -235,16 +152,22 @@ export const Paper = styled.div`
     height: 25em;
   }
 
-  @media (max-width: 1000px){
-    width: 20em;
-    height: 15em;
-    // display: none;
-    img{
-      width: 15em;
-      height: 15em;
-      // display: none;
-    }
+  @media (max-width: 800px){
+    display: none;
   }
+
 `;
 
+export const Warning = styled.div`
+  text-align: center;
+  margin-top: 5em;
+  margin-right: 2em;
+  margin-left: 2em;
+  font-size: 18px;
+  display: none;
+
+  @media (max-width: 800px){
+    display: block;
+  }
+`
 
