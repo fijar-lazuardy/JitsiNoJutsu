@@ -71,15 +71,17 @@ const Home = () => {
                 Logout
               </button>
             </Flex>
+           
           </Header>
 
-          <Flex direction="row">
+          <Flex direction="row" wrap="wrap">
             <Flex direction="column" style={{ width: "30em", margin: 0 }}>
               <p className="caption">プレミアムビデオ会議。 誰でも無料</p>
               <p className="description">
                 Premium video meetings. Free for everyone
               </p>
-              <Flex direction="row" style={{ marginTop: "5em" }}>
+              <h1 className="warning">The page does not support on mobile devices</h1>
+              <Flex direction="row" justify="center" style={{ marginTop: "5em" }}>
                 <div className="classNamem_group">
                   <input
                     type="text"
